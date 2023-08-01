@@ -1,9 +1,29 @@
 package com.sky.springdogs.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.criteria.CriteriaBuilder;
+
+@Entity
+// @Table used to set the name of table you create
 public class Dog {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String name;
     private String breed;
     private Integer age;
+
+    public Dog(Integer id, String name, String breed, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+    }
 
     public Dog(String name, String breed, Integer age) {
         this.name = name;
@@ -12,6 +32,14 @@ public class Dog {
     }
 
     public Dog(){
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
