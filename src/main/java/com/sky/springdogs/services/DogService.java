@@ -23,4 +23,8 @@ public interface DogService {
             @RequestParam(value = "age", required = false) Integer age );
 
     public Dog remove (@PathVariable Integer id);
+
+    List<Dog> findByName(String name);
+
+    List<Integer> findAgeByName(String name);
 }

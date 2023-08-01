@@ -63,4 +63,14 @@ public class DogServiceList implements DogService{
 
         return delDog;
     }
+
+    @Override
+    public List<Dog> findByName(String name) {
+        return null; // NOT IMPLEMENTED
+    }
+
+    @Override
+    public List<Integer> findAgeByName(String name) {
+        return null; // NOT IMPLEMENTED
+    }
 }

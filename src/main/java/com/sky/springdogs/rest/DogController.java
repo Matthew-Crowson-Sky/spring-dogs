@@ -54,4 +54,14 @@ public class DogController {
     public Dog remove (@PathVariable Integer id) {
         return this.service.remove(id);
     }
+
+    @GetMapping("findByName/{name}")
+    public List<Dog> findByName (@PathVariable String name){
+        return this.service.findByName(name);
+    }
+
+    @GetMapping("findAgeByName/{name}")
+    public List<Integer> findAgeByName (@PathVariable String name){
+        return this.service.findAgeByName(name);
+    }
 }

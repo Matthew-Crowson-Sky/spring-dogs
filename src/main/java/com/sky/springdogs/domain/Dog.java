@@ -1,9 +1,6 @@
 package com.sky.springdogs.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
@@ -14,6 +11,8 @@ public class Dog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    // Showing that you can specify some attributes as unique and nullable if you wanted to
+    @Column (unique = false, nullable = true)
     private String name;
     private String breed;
     private Integer age;
