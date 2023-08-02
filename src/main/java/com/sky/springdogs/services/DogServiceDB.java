@@ -1,6 +1,7 @@
 package com.sky.springdogs.services;
 
 import com.sky.springdogs.domain.Dog;
+import com.sky.springdogs.exceptions.DogNotFoundException;
 import com.sky.springdogs.repos.DogRepo;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpEntity;
@@ -34,12 +35,8 @@ public class DogServiceDB implements DogService {
 
     @Override
     public Dog get(Integer id) {
-        Optional<Dog> optionalDog = this.repo.findById(id);
-        Dog actualDog = optionalDog.get();
-
-        return actualDog;
+        return this.repo.findById(id).orElseThrow(DogNotFoundException::new);
     }
-
     @Override
     public Dog update(Integer id, String name, String breed, Integer age) {
         Dog upDog = this.get(id);

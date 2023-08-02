@@ -1,7 +1,11 @@
 package com.sky.springdogs.domain;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 // @Table used to set the name of table you create
@@ -13,8 +17,13 @@ public class Dog {
 
     // Showing that you can specify some attributes as unique and nullable if you wanted to
     @Column (unique = false, nullable = true)
+    @NotEmpty @Size(min = 1, max = 50)
     private String name;
+
+    @NotEmpty @Size(min = 1, max = 50)
     private String breed;
+
+    @NotNull @Range(min = 0, max = 36)
     private Integer age;
 
     public Dog(Integer id, String name, String breed, Integer age) {
