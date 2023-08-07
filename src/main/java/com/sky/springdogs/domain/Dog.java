@@ -27,6 +27,16 @@ public class Dog {
     @NotNull @Range(min = 0, max = 36)
     private Integer age;
 
+    @ManyToOne(targetEntity = Home.class)
+    private Home home;
+
+    public Dog(String name, String breed, Integer age, Home home) {
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+        this.home = home;
+    }
+
     public Dog(Integer id, String name, String breed, Integer age) {
         this.id = id;
         this.name = name;
@@ -73,6 +83,14 @@ public class Dog {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Home getHome() {
+        return home;
+    }
+
+    public void setHome(Home home) {
+        this.home = home;
     }
 
     @Override
